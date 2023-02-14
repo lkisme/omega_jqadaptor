@@ -193,8 +193,8 @@ class Fetcher:
         if type(end_at) is datetime.date:  # noqa
             end_at = datetime.datetime(end_at.year, end_at.month, end_at.day, 15)
         try:
-            bars = jq.get_bars(
-                sec,
+            bars_batch = jq.get_bars(
+                [sec],
                 n_bars,
                 unit=frame_type,
                 end_dt=end_at,
@@ -212,6 +212,7 @@ class Fetcher:
                 ],
                 include_now=include_unclosed,
             )
+            bars = bars_batch[sec]
             # convert to omega supported format
             bars = np.array(
                 bars,

@@ -24,8 +24,8 @@ setup_requirements = []
 test_requirements = []
 
 setup(
-    author="Aaron Yang",
-    author_email="code@jieyu.ai",
+    author="A",
+    author_email="B",
     python_requires=">=3.8",
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -45,6 +45,6 @@ setup(
     packages=find_packages(include=["jqadaptor", "jqadaptor.*"]),
     setup_requires=setup_requirements,
     url="https://github.com/zillionare/omega_jqadaptor",
-    version="1.0.3",
+    version="1.0.3-alpha",
     zip_safe=False,
 )
