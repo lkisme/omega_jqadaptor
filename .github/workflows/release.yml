@@ -65,23 +65,31 @@ jobs:
           files: dist/*.whl
           draft: false
           prerelease: false
-
-      - name:
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - name: Upload binaries to release
+        uses: svenstaro/upload-release-action@v2
         with:
-          user: __token__
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          skip_existing: true
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*.whl
+          asset_name: omega-jqadapter-kk
+          tag: 1.2.1-alpha
+          overwrite: true
+          body: "1.2.1-alpha"
+      # - name:
+      #   uses: pypa/gh-action-pypi-publish@release/v1
+      #   with:
+      #     user: __token__
+      #     password: ${{ secrets.PYPI_API_TOKEN }}
+      #     skip_existing: true
 
-      - name: Dingtalk Robot Notify
-        uses: leafney/dingtalk-action@v1.0.0
-        env: 
-          DINGTALK_ACCESS_TOKEN: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
-          DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
-        with:
-          msgtype: markdown
-          notify_when: 'success'
-          title: Release ${{ github.ref }}
-          text: |
-            ## 变更历史
-            ${{ steps.build_changelog.outputs.changelog }}            
+      # - name: Dingtalk Robot Notify
+      #   uses: leafney/dingtalk-action@v1.0.0
+      #   env: 
+      #     DINGTALK_ACCESS_TOKEN: ${{ secrets.DINGTALK_ACCESS_TOKEN }}
+      #     DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}
+      #   with:
+      #     msgtype: markdown
+      #     notify_when: 'success'
+      #     title: Release ${{ github.ref }}
+      #     text: |
+      #       ## 变更历史
+      #       ${{ steps.build_changelog.outputs.changelog }}            

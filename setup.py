@@ -25,8 +25,8 @@ setup_requirements = []
 test_requirements = []
 
 setup(
-    author="Aaron Yang",
-    author_email="code@jieyu.ai",
+    author="A",
+    author_email="B",
     python_requires=">=3.8",
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -42,10 +42,10 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     keywords="zillionare, omega, adaptors, jqdatasdk",
-    name="zillionare-omega-adaptors-jq",
+    name="omega-jqadapter-kk",
     packages=find_packages(include=["jqadaptor", "jqadaptor.*"]),
     setup_requires=setup_requirements,
-    url="https://github.com/zillionare/omega_jqadaptor",
-    version="1.2",
+    url="https://github.com/lkisme/omega_jqadaptor",
+    version="1.2.1-alpha",
     zip_safe=False,
 )
