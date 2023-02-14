@@ -208,8 +208,8 @@ class Fetcher(QuotesFetcher):
         if type(end_at) is datetime.date:  # noqa
             end_at = datetime.datetime(end_at.year, end_at.month, end_at.day, 15)
 
-        bars = jq.get_bars(
-            sec,
+        bars_b = jq.get_bars(
+            [sec],
             n_bars,
             unit=frame_type,
             end_dt=end_at,
@@ -227,6 +227,7 @@ class Fetcher(QuotesFetcher):
             ],
             include_now=include_unclosed,
         )
+        bars = bars_b[sec]
         # convert to omega supported format
         bars = bars.astype(bars_dtype)
         if len(bars) == 0:
