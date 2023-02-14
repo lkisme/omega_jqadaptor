@@ -59,8 +59,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v1
         env:
-          GITHUB_
-          : ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN : ${{ secrets.GH_TOKEN }}
         with:
           body: ${{ steps.build_changelog.outputs.changelog }}
           files: dist/*.whl
