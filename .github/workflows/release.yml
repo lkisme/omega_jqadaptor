@@ -65,15 +65,7 @@ jobs:
           files: dist/*.whl
           draft: false
           prerelease: false
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GH_TOKEN }}
-          file: dist/*.whl
-          asset_name: omega-jqadapter-kk
-          tag: ${{ github.ref }}
-          overwrite: true
-          body: "1.2.1-alpha"
+      
       - name: Get upload url
         id: release-id
         run: |
