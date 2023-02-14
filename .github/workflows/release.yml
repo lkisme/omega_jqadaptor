@@ -71,7 +71,7 @@ jobs:
           repo_token: ${{ secrets.GH_TOKEN }}
           file: dist/*.whl
           asset_name: omega-jqadapter-kk
-          tag: 1.2.1-alpha
+          tag: ${{ github.ref }}
           overwrite: true
           body: "1.2.1-alpha"
       # - name:
